@@ -21,6 +21,12 @@ function TodoList() {
     }
   };
 
+  const deleteTask = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  };
+
   const toggleComplete = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = !newTodos[index].completed;
@@ -47,6 +53,7 @@ function TodoList() {
             <button onClick={() => toggleComplete(index)}>
               {todo.completed ? "Undo" : "Complete"}
             </button>
+            <button onClick={() => deleteTask(index)}>Delete</button>
           </li>
         ))}
       </ul>
