@@ -1,22 +1,43 @@
+/* General styles for all components */
+.component {
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 15px; /* Space inside the border */
+  margin-bottom: 15px; /* Space between components */
+}
+
+/* Styles for NoteTakingApp */
+.note-app {
+  border: 1px solid #007bff;
+  padding: 20px;
+}
+
+/* Styles for TodoList */
+.todo-list {
+  border: 1px solid #28a745;
+  padding: 20px;
+}
+
+/* Styles for Clock/Timer Component */
+.clock-timer {
+  border: 1px solid #ffc107;
+  padding: 20px; /* Yellow border for the Clock/Timer */
+}
+
+/* Flex container for main layout */
 .app-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  display: flex;
+  height: 100vh; /* Full viewport height */
 }
 
-.note-section {
-  grid-column: 1 / 2;
-  padding: 20px;
+/* Left side component styles */
+.note-app {
+  flex: 1; /* Take half of the screen */
 }
 
-.right-section {
-  grid-column: 2 / 3;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-
-.clock-section,
-.todo-section {
-  padding: 20px;
-  border-top: 1px solid #ccc;
+/* Right side containing clock and todo list */
+.right-side {
+  flex: 1; /* Take the other half of the screen */
+  display: flex; /* Use flexbox for vertical stacking */
+  flex-direction: column; /* Stack clock and todo list vertically */
 }

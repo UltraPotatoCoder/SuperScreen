@@ -1,7 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-function NoteTakingApp() {
+const NoteTakingApp = () => {
   const [note, setNote] = useState("");
   const [savedNotes, setSavedNotes] = useState([]);
 
@@ -13,7 +12,7 @@ function NoteTakingApp() {
   }, []);
 
   const handleNoteChange = (e) => {
-    const words = e.target.value.split(/\s+/); // split input by whitespace
+    const words = e.target.value.split(/\s+/);
     if (words.length <= 200) {
       setNote(e.target.value);
     }
@@ -35,35 +34,37 @@ function NoteTakingApp() {
   };
 
   return (
-    <div>
+    <div className="note-app">
       <h2>Quick Note Taking App</h2>
 
-      {/* Note Input */}
       <textarea
         value={note}
         onChange={handleNoteChange}
         placeholder="Write your quick note here (max 200 words)"
-        style={{ width: "100%", height: "100px" }}
+        className="note-input"
       />
-
-      {/* Word Count */}
       <p>{note.split(/\s+/).filter(Boolean).length} / 200 words</p>
 
-      {/* Save Button */}
-      <button onClick={saveNote}>Save Note</button>
+      <button onClick={saveNote} className="save-note-btn">
+        Save Note
+      </button>
 
-      {/* Display Saved Notes */}
       <h3>Saved Notes:</h3>
-      <ul>
+      <ul className="saved-notes-list">
         {savedNotes.map((savedNote, index) => (
-          <li key={index}>
+          <li key={index} className="saved-note">
             <p>{savedNote}</p>
-            <button onClick={() => deleteNote(index)}>Delete</button>
+            <button
+              onClick={() => deleteNote(index)}
+              className="delete-note-btn"
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
     </div>
   );
-}
+};
 
 export default NoteTakingApp;

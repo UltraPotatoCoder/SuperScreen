@@ -1,24 +1,25 @@
-import "./App.css";
+import React from "react";
 import NoteTakingApp from "./Components/NoteTakingApp";
 import ClockWithTimer from "./Components/ClockWithTimer";
 import TodoList from "./Components/TodoList";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="app-container">
-      <div className="note-section">
+      <div className="component note-app">
         <NoteTakingApp />
       </div>
-      <div className="right-section">
-        <div className="clock-section">
+      <div className="right-side">
+        <div className="component clock-timer">
           <ClockWithTimer />
         </div>
-        <div className="todo-section">
+        <div className="component todo-list">
           <TodoList />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
